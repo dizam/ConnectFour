@@ -24,9 +24,9 @@ We then check for three coins on the same diagonal. Since these states can lead 
 
 Finally, we weight the positions of the board. The weights of the positions are based on the number of threats they can create, so the center is weighted the most and the weights radially decrease outwards from the center. Since controlling the center can generate the most threat and thus increase the chance of winning, we weight these positions to entice our AI to capture these squares.
 
-Thus, the player who has more winning lines, then open ended two in a rows, then three in a diagonal, and then coins in key positions on the board is in a better state, which encompasses the threats of Connect Four. Our minimax uses these cases.
-
 ![alt text](boardState.jpg)
+
+Thus, the player who has more winning lines, then open ended two in a rows, then three in a diagonal, and then coins in key positions on the board is in a better state, which encompasses the threats of Connect Four. Our minimax uses these cases.
 
 Eval(state) = ((ourWins - enemyWins) * (winWeight)) + ((ourTwoInRow - enemyTwoInRow) * (twoHorzWeight)) + ((our3Diag - enemy3Diag) * threeDiagWeight) + ((ourWeight - enemyWeight))
 
@@ -42,7 +42,9 @@ our3Diag = number of ways our player has 3 in a row diagonally enemy3Diag = numb
 ourWeight = Cumulative weight of positions our player occupies based on table weights shown above, enemyWeight = Cumulative weight of positions enemy player occupies based on on table weights shown above.
 
 Example:
+
 ![alt text](Payoff.jpg)
+
 For this board state, we have one win, one open ended two in a row, one three in a diagonal line, and positions on the board. The enemy has zero wins, zero open ended two in a rows, zero three in a diagonal lines, and positions on the board.
 
 Thus our payoff for this state would be:
